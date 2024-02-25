@@ -9,6 +9,7 @@ async function bootstrap() {
       transport: Transport.TCP,
       options: {
         port: 8103,
+        host: process.env.GAMEHOST || 'localhost',
       },
     },
   );
