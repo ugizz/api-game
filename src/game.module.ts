@@ -3,7 +3,7 @@ import { GameController } from './game.controller';
 import { GameService } from './game.service';
 import { typeORMConfig } from './configs/typeorm.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Game } from './entity/game.entity';
+import { Game } from './data/entity/game.entity';
 import { GameRepository } from './game.repository';
 import { RoleRepository } from './role.repository';
 

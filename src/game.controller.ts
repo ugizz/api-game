@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { GameService } from './game.service';
-import { GameResultDto } from './dto/game.result.create.dto';
+import { GameResultDto } from './data/dto/game.result.create.dto';
 import { MessagePattern } from '@nestjs/microservices';
 import { ResponseEntity } from './configs/ResponseEntity';
 
