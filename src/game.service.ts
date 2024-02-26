@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { GameResultDto } from './data/dto/game.result.create.dto';
+import { GameResultDto } from './data/dto/request/game.result.create.dto';
 import { RoleRepository } from './role.repository';
 import { GameRepository } from './game.repository';
 import { User } from './data/entity/user.entity';
+import { ResultListDto } from './data/dto/response/game.result.list.dto';
 
 @Injectable()
 export class GameService {
@@ -23,5 +24,9 @@ export class GameService {
       roomSession,
       isWin,
     );
+  }
+
+  async findResult(user: User): Promise<ResultListDto[]> {
+    return await this.gameRepository.findResult(user.userId);
   }
 }
