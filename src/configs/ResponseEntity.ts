@@ -3,6 +3,7 @@ import { ResponseStatus } from './ResponseStatus';
 
 export class ResponseEntity<T> {
   private readonly statusCode: number;
+
   private readonly message: string;
 
   data: T;
@@ -32,7 +33,10 @@ export class ResponseEntity<T> {
     );
   }
 
-  static ERROR_WITH(status: number, message: string): ResponseEntity<string> {
+  static ERROR_WITH(
+    message: string,
+    status: number = ResponseStatus.SERVER_ERROR,
+  ): ResponseEntity<string> {
     return new ResponseEntity<string>(status, message, '');
   }
 

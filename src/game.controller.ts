@@ -12,8 +12,12 @@ export class GameController {
 
   @MessagePattern('create')
   async create(gameResultDto: GameResultDto): Promise<ResponseEntity<string>> {
-    await this.gameService.gameRecord(gameResultDto);
-    return ResponseEntity.OK();
+    try {
+      await this.gameService.gameRecord(gameResultDto);
+      return ResponseEntity.OK();
+    } catch (e) {
+      return ResponseEntity.ERROR_WITH('게임 기록시 오류가 발생했습니다.');
+    }
   }
 
   @MessagePattern('getresult')
