@@ -54,6 +54,7 @@ export class GameRepository extends Repository<Game> {
         'tb_game.role_id = tb_role.role_id',
       )
       .where('tb_game.user_id = :userId ', { userId: userId })
+      .orderBy('played_at', 'DESC')
       .execute();
   }
 }
